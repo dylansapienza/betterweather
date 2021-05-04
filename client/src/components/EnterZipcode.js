@@ -12,6 +12,11 @@ import {
 } from "@chakra-ui/react";
 
 function EnterZipcode(props) {
+  function submitZipcode(zipcode) {
+    console.log(zipcode);
+    props.submit();
+  }
+
   const WeatherIcon = createIcon({
     displayName: "Notification",
     viewBox: "0 0 512 512",
@@ -173,6 +178,7 @@ function EnterZipcode(props) {
         </Stack>
         <Stack spacing={4} direction={{ base: "column", md: "row" }} w={"full"}>
           <Input
+            id="zipcode"
             type={"text"}
             placeholder={"11234"}
             color={useColorModeValue("gray.800", "gray.200")}
@@ -191,7 +197,9 @@ function EnterZipcode(props) {
             flex={"1 0 auto"}
             _hover={{ bg: "blue.500" }}
             _focus={{ bg: "blue.500" }}
-            onClick={() => props.submit()}
+            onClick={() =>
+              submitZipcode(document.getElementById("zipcode").value)
+            }
           >
             Get Report
           </Button>
