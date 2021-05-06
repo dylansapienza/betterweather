@@ -10,10 +10,20 @@ import {
   useColorModeValue,
   createIcon,
 } from "@chakra-ui/react";
+import axios from "axios";
 
 function EnterZipcode(props) {
   function submitZipcode(zipcode) {
     console.log(zipcode);
+    axios.post(
+      "/api/v1/getCoords",
+      { zipcode: zipcode },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
     props.submit();
   }
 
