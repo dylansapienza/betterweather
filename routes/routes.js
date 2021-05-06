@@ -5,6 +5,6 @@ const controllers = require("../controllers/controllers");
 
 router.get("/say-something", controllers.saySomething);
 
-router.post("/getCoords", controllers.getCoords);
+router.post("/generateWeatherData", controllers.generateWeatherData);
 
 module.exports = router;

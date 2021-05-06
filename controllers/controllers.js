@@ -12,35 +12,26 @@ const saySomething = (req, res) => {
 
 module.exports.saySomething = saySomething;
 
-const getCoords = (req, res) => {
-  console.log("HI");
-
+const generateWeatherData = (req, res) => {
   var zipcode = req.body.zipcode;
-
-  request(
-    `https://thezipcodes.com/api/v1/search?zipCode=${zipcode}&countryCode=US&apiKey=${ZIPCODEKEY}`,
-    { json: true },
-    (err, res, body) => {
-      if (err) {
-        return console.log(err);
-      }
-      console.log(body);
-      JSON.parse(body);
-      console.log(body.location.latitude);
-      console.log(body.location.longitude);
-    }
-  );
+  console.log("hi");
 
   fetch(
-    `https://www.zipcodeapi.com/rest/${ZIPCODEKEY}/info.json/${zipcode}/degrees`
+    `http://api.openweathermap.org/geo/1.0/zip?zip=${zipcode}&appid=${ZIPCODEKEY}`
   )
     .then((response) => response.json())
     .then((data) => {
-      res.status(200).json({
-        body: data,
-      });
-      console.log(data);
+      console.log(data.lat);
+      console.log(data.lon);
+      fetch(
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${data.lat}&lon=${data.lon}&exclude={part}&appid=${ZIPCODEKEY}`
+      )
+        .then((re) => re.json())
+        .then(async (dat) => {
+          res.send({ body: await dat });
+          console.log(dat);
+        });
     });
 };
 
-module.exports.getCoords = getCoords;
+module.exports.generateWeatherData = generateWeatherData;

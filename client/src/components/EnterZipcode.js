@@ -16,7 +16,7 @@ function EnterZipcode(props) {
   function submitZipcode(zipcode) {
     console.log(zipcode);
     axios.post(
-      "/api/v1/getCoords",
+      "/api/v1/generateWeatherData",
       { zipcode: zipcode },
       {
         headers: {
