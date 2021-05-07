@@ -10,9 +10,12 @@ import {
   List,
   ListItem,
   ListIcon,
+  Icon,
+  Image,
   Button,
 } from "@chakra-ui/react";
 import { FaCheckCircle } from "react-icons/fa";
+import WeatherIcons from "./WeatherIcons";
 
 var d = new Date();
 
@@ -74,14 +77,22 @@ function WeatherReport(props) {
               {threedays[0]}
             </Text>
             <HStack justifyContent="center">
-              <Text fontSize="2xl" color="blue.500">
-                {k_to_f(props.weatherData.daily[0].temp.min)}
-              </Text>
+              <Icon as={WeatherIcons.sunny} w={24} h={24} />
+            </HStack>
+            <HStack justifyContent="center">
               <Text fontSize="5xl" fontWeight="900">
                 {k_to_f(props.weatherData.daily[0].temp.day)}
               </Text>
+              <Text fontSize="xl" fontWeight="900">
+                ℉
+              </Text>
+            </HStack>
+            <HStack justifyContent="center">
+              <Text fontSize="2xl" color="blue.500">
+                Lo: {k_to_f(props.weatherData.daily[0].temp.min)}
+              </Text>
               <Text fontSize="2xl" color="orange.500">
-                {k_to_f(props.weatherData.daily[0].temp.max)}
+                Hi: {k_to_f(props.weatherData.daily[0].temp.max)}
               </Text>
             </HStack>
           </Box>
