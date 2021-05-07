@@ -16,6 +16,7 @@ import {
 } from "@chakra-ui/react";
 import { FaCheckCircle } from "react-icons/fa";
 import WeatherIcons from "./WeatherIcons";
+import Weather from "./Weather";
 
 var d = new Date();
 
@@ -38,6 +39,21 @@ threedays[2] = weekdays[(n + 2) % 7];
 
 function k_to_f(kelvin) {
   return parseInt((kelvin - 273.15) * 1.8 + 32);
+}
+
+function weathertoIcon(weather) {
+  console.log(weather.main);
+  if (weather.main === "Rain" || weather.main === "Drizzle")
+    return WeatherIcons.rain;
+
+  if (weather.main === "Thunderstorm") return WeatherIcons.storm;
+  if (weather.main === "Clear") return WeatherIcons.sunny;
+  if (weather.main === "Snow") return WeatherIcons.snow;
+  if (weather.main === "Clouds" && (weather.id === 801 || weather.id === 802))
+    return WeatherIcons.partlycloudy;
+  else return WeatherIcons.cloudy;
+
+  return WeatherIcons.notFound;
 }
 
 function WeatherWrapper({ children }) {
@@ -77,7 +93,11 @@ function WeatherReport(props) {
               {threedays[0]}
             </Text>
             <HStack justifyContent="center">
-              <Icon as={WeatherIcons.sunny} w={24} h={24} />
+              <Icon
+                as={weathertoIcon(props.weatherData.daily[0].weather[0])}
+                w={24}
+                h={24}
+              />
             </HStack>
             <HStack justifyContent="center">
               <Text fontSize="5xl" fontWeight="900">
@@ -102,22 +122,20 @@ function WeatherReport(props) {
             borderBottomRadius={"xl"}
           >
             <List spacing={3} textAlign="start" px={12}>
+              <ListItem>{props.weatherData.daily[0].uvi} UV Index</ListItem>
               <ListItem>
-                <ListIcon as={FaCheckCircle} color="green.500" />
-                unlimited build minutes
+                {props.weatherData.daily[0].humidity}% Humidity
               </ListItem>
               <ListItem>
-                <ListIcon as={FaCheckCircle} color="green.500" />
-                Lorem, ipsum dolor.
-              </ListItem>
-              <ListItem>
-                <ListIcon as={FaCheckCircle} color="green.500" />
-                5TB Lorem, ipsum dolor.
+                {props.weatherData.daily[0].pop === 1
+                  ? 100
+                  : props.weatherData.daily[0].pop}
+                % Chance of Precipitation
               </ListItem>
             </List>
             <Box pt={7}>
               <Button w="full" colorScheme="red" variant="outline">
-                Start trial
+                More Data
               </Button>
             </Box>
           </VStack>
@@ -129,14 +147,26 @@ function WeatherReport(props) {
               {threedays[1]}
             </Text>
             <HStack justifyContent="center">
-              <Text fontSize="3xl" fontWeight="600">
-                $
-              </Text>
+              <Icon
+                as={weathertoIcon(props.weatherData.daily[1].weather[0])}
+                w={24}
+                h={24}
+              />
+            </HStack>
+            <HStack justifyContent="center">
               <Text fontSize="5xl" fontWeight="900">
                 {k_to_f(props.weatherData.daily[1].temp.day)}
               </Text>
-              <Text fontSize="3xl" color="gray.500">
-                /month
+              <Text fontSize="xl" fontWeight="900">
+                ℉
+              </Text>
+            </HStack>
+            <HStack justifyContent="center">
+              <Text fontSize="2xl" color="blue.500">
+                Lo: {k_to_f(props.weatherData.daily[1].temp.min)}
+              </Text>
+              <Text fontSize="2xl" color="orange.500">
+                Hi: {k_to_f(props.weatherData.daily[1].temp.max)}
               </Text>
             </HStack>
           </Box>
@@ -146,22 +176,20 @@ function WeatherReport(props) {
             borderBottomRadius={"xl"}
           >
             <List spacing={3} textAlign="start" px={12}>
+              <ListItem>{props.weatherData.daily[1].uvi} UV Index</ListItem>
               <ListItem>
-                <ListIcon as={FaCheckCircle} color="green.500" />
-                unlimited build minutes
+                {props.weatherData.daily[1].humidity}% Humidity
               </ListItem>
               <ListItem>
-                <ListIcon as={FaCheckCircle} color="green.500" />
-                Lorem, ipsum dolor.
-              </ListItem>
-              <ListItem>
-                <ListIcon as={FaCheckCircle} color="green.500" />
-                5TB Lorem, ipsum dolor.
+                {props.weatherData.daily[1].pop === 1
+                  ? 100
+                  : props.weatherData.daily[0].pop}
+                % Chance of Precipitation
               </ListItem>
             </List>
             <Box pt={7}>
               <Button w="full" colorScheme="red" variant="outline">
-                Start trial
+                More Data
               </Button>
             </Box>
           </VStack>
@@ -173,14 +201,26 @@ function WeatherReport(props) {
               {threedays[2]}
             </Text>
             <HStack justifyContent="center">
-              <Text fontSize="3xl" fontWeight="600">
-                $
-              </Text>
+              <Icon
+                as={weathertoIcon(props.weatherData.daily[2].weather[0])}
+                w={24}
+                h={24}
+              />
+            </HStack>
+            <HStack justifyContent="center">
               <Text fontSize="5xl" fontWeight="900">
                 {k_to_f(props.weatherData.daily[2].temp.day)}
               </Text>
-              <Text fontSize="3xl" color="gray.500">
-                /month
+              <Text fontSize="xl" fontWeight="900">
+                ℉
+              </Text>
+            </HStack>
+            <HStack justifyContent="center">
+              <Text fontSize="2xl" color="blue.500">
+                Lo: {k_to_f(props.weatherData.daily[2].temp.min)}
+              </Text>
+              <Text fontSize="2xl" color="orange.500">
+                Hi: {k_to_f(props.weatherData.daily[2].temp.max)}
               </Text>
             </HStack>
           </Box>
@@ -190,22 +230,20 @@ function WeatherReport(props) {
             borderBottomRadius={"xl"}
           >
             <List spacing={3} textAlign="start" px={12}>
+              <ListItem>{props.weatherData.daily[2].uvi} UV Index</ListItem>
               <ListItem>
-                <ListIcon as={FaCheckCircle} color="green.500" />
-                unlimited build minutes
+                {props.weatherData.daily[2].humidity}% Humidity
               </ListItem>
               <ListItem>
-                <ListIcon as={FaCheckCircle} color="green.500" />
-                Lorem, ipsum dolor.
-              </ListItem>
-              <ListItem>
-                <ListIcon as={FaCheckCircle} color="green.500" />
-                5TB Lorem, ipsum dolor.
+                {props.weatherData.daily[2].pop === 1
+                  ? 100
+                  : props.weatherData.daily[2].pop}
+                % Chance of Precipitation
               </ListItem>
             </List>
             <Box pt={7}>
               <Button w="full" colorScheme="red" variant="outline">
-                Start trial
+                More Data
               </Button>
             </Box>
           </VStack>

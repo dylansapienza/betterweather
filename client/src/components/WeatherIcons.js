@@ -210,6 +210,383 @@ const sunny = createIcon({
   ),
 });
 
-export { partlycloudy, sunny };
+const rain = createIcon({
+  displayName: "Notification",
+  viewBox: "0 0 512 512",
+  path: (
+    <svg xmlns="http://www.w3.org/2000/svg" id="icone" viewBox="0 0 512 512">
+      <title />
+      <path
+        d="M380.14,190.14a105.1,105.1,0,0,0-7.34-23.33,64.4,64.4,0,0,0-12.66,3.33,105.64,105.64,0,0,0-19.9-44.46A106,106,0,0,0,170,210c0,2.72.11,5.41.31,8.08a50,50,0,0,0-58.23,71.83A49.78,49.78,0,0,0,136,296H383a65,65,0,0,0,54.85-99.85,65,65,0,0,0-57.71-6Z"
+        fill="#b6c4cf"
+      />
+      <path
+        d="M157.5,150.81c-.07.19-.15.37-.22.56s-.15.36-.22.55"
+        fill="none"
+        stroke="#02005c"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="20"
+      />
+      <path
+        d="M447.87,234.41c1.86-33.07-22.91-63.16-55.72-67.76a65.39,65.39,0,0,0-32,3.5c-6.45-34.08-30-62.91-61.32-77.47C255,71,198,88,169.85,128.24"
+        fill="none"
+        stroke="#02005c"
+        stroke-linecap="round"
+        stroke-miterlimit="10"
+        stroke-width="20"
+      />
+      <path
+        d="M427.65,278.24a64.67,64.67,0,0,0,13.64-18.62"
+        fill="none"
+        stroke="#02005c"
+        stroke-linecap="round"
+        stroke-miterlimit="10"
+        stroke-width="20"
+      />
+      <path
+        d="M150.83,176.7a107.71,107.71,0,0,0-.53,21.39A50.48,50.48,0,0,0,91,224.22,48.32,48.32,0,0,0,91,268c3,5,6,11,11,15a83.42,83.42,0,0,0,12,8,120.9,120.9,0,0,0,18,5q129,1.5,258,0c5,0,11-3,15.92-4.16"
+        fill="none"
+        stroke="#02005c"
+        stroke-linecap="round"
+        stroke-miterlimit="10"
+        stroke-width="20"
+      />
+      <path
+        d="M213.83,277a23.29,23.29,0,1,0,23.29,23.29h0V277H213.83Z"
+        fill="#fff"
+      />
+      <path
+        d="M327.65,343.58v.06a33,33,0,0,0-31.08,44.06,33,33,0,0,0,44.06-31.08h.06v-13Z"
+        fill="#60c3e5"
+      />
+      <path
+        d="M237.12,300.29h0V297h-3.33v0a23.29,23.29,0,0,0-23.29,23.29,22.34,22.34,0,0,0,.21,3.08,24,24,0,0,0,3.08.21A23.29,23.29,0,0,0,237.12,300.29Z"
+        fill="#60c3e5"
+      />
+      <path
+        d="M233.26,406v.08A42.26,42.26,0,0,0,195.1,466.5a42.27,42.27,0,0,0,60.43-38.16h.07V406Z"
+        fill="#60c3e5"
+      />
+      <path
+        d="M213.83,277a23.29,23.29,0,1,0,23.29,23.29h0V277H213.83Z"
+        fill="none"
+        stroke="#02005c"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="20"
+      />
+      <path
+        d="M174.09,412.47l-.15.37"
+        fill="none"
+        stroke="#02005c"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="20"
+      />
+      <path
+        d="M171.92,437.18a42.27,42.27,0,0,0,83.6-8.84h.07V386H213.26A42,42,0,0,0,189,393.75"
+        fill="none"
+        stroke="#02005c"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="20"
+      />
+      <path
+        d="M277.25,343.76c-.06.14-.11.29-.17.44"
+        fill="none"
+        stroke="#02005c"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="20"
+      />
+      <path
+        d="M276.65,367.94a33,33,0,0,0,64-11.32h.06v-33h-33v.06a32.87,32.87,0,0,0-13.57,2.91"
+        fill="none"
+        stroke="#02005c"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="20"
+      />
+    </svg>
+  ),
+});
 
-export default { partlycloudy, sunny };
+const cloudy = createIcon({
+  displayName: "Notification",
+  viewBox: "0 0 512 512",
+  path: (
+    <svg xmlns="http://www.w3.org/2000/svg" id="icone" viewBox="0 0 512 512">
+      <title />
+      <path
+        d="M369.14,256.14a105.1,105.1,0,0,0-7.34-23.33,64.4,64.4,0,0,0-12.66,3.33,105.64,105.64,0,0,0-19.9-44.46A106,106,0,0,0,159,276c0,2.72.11,5.41.31,8.08a50,50,0,0,0-58.23,71.83A49.78,49.78,0,0,0,125,362H372a65,65,0,0,0,54.85-99.85,65,65,0,0,0-57.71-6Z"
+        fill="#b6c4cf"
+      />
+      <path
+        d="M146.5,216.81c-.07.19-.15.37-.22.56s-.15.36-.22.55"
+        fill="none"
+        stroke="#02005c"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="20"
+      />
+      <path
+        d="M436.87,300.41c1.86-33.07-22.91-63.16-55.72-67.76a65.39,65.39,0,0,0-32,3.5c-6.45-34.08-30-62.91-61.32-77.47C244,137,187,154,158.85,194.24"
+        fill="none"
+        stroke="#02005c"
+        stroke-linecap="round"
+        stroke-miterlimit="10"
+        stroke-width="20"
+      />
+      <path
+        d="M416.65,344.24a64.67,64.67,0,0,0,13.64-18.62"
+        fill="none"
+        stroke="#02005c"
+        stroke-linecap="round"
+        stroke-miterlimit="10"
+        stroke-width="20"
+      />
+      <path
+        d="M139.83,242.7a107.71,107.71,0,0,0-.53,21.39A50.48,50.48,0,0,0,80,290.22,48.32,48.32,0,0,0,80,334c3,5,6,11,11,15a83.42,83.42,0,0,0,12,8,120.9,120.9,0,0,0,18,5q129,1.5,258,0c5,0,11-3,15.92-4.16"
+        fill="none"
+        stroke="#02005c"
+        stroke-linecap="round"
+        stroke-miterlimit="10"
+        stroke-width="20"
+      />
+    </svg>
+  ),
+});
+
+const storm = createIcon({
+  displayName: "Notification",
+  viewBox: "0 0 512 512",
+  path: (
+    <svg xmlns="http://www.w3.org/2000/svg" id="icone" viewBox="0 0 512 512">
+      <title />
+      <g id="cloud">
+        <path
+          d="M380.14,190.14a105.1,105.1,0,0,0-7.34-23.33,64.4,64.4,0,0,0-12.66,3.33,105.64,105.64,0,0,0-19.9-44.46A106,106,0,0,0,170,210c0,2.72.11,5.41.31,8.08a50,50,0,0,0-58.23,71.83A49.78,49.78,0,0,0,136,296H383a65,65,0,0,0,54.85-99.85,65,65,0,0,0-57.71-6Z"
+          fill="#b6c4cf"
+        />
+      </g>
+      <line
+        fill="none"
+        stroke="#02005c"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="20"
+        x1="181"
+        x2="350.41"
+        y1="256"
+        y2="256"
+      />
+      <path
+        d="M157.5,150.81c-.07.19-.15.37-.22.56s-.15.36-.22.55"
+        fill="none"
+        stroke="#02005c"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="20"
+      />
+      <path
+        d="M447.87,234.41c1.86-33.07-22.91-63.16-55.72-67.76a65.39,65.39,0,0,0-32,3.5c-6.45-34.08-30-62.91-61.32-77.47C255,71,198,88,169.85,128.24"
+        fill="none"
+        stroke="#02005c"
+        stroke-linecap="round"
+        stroke-miterlimit="10"
+        stroke-width="20"
+      />
+      <path
+        d="M427.65,278.24a64.67,64.67,0,0,0,13.64-18.62"
+        fill="none"
+        stroke="#02005c"
+        stroke-linecap="round"
+        stroke-miterlimit="10"
+        stroke-width="20"
+      />
+      <path
+        d="M150.83,176.7a107.71,107.71,0,0,0-.53,21.39A50.48,50.48,0,0,0,91,224.22,48.32,48.32,0,0,0,91,268c3,5,6,11,11,15a83.42,83.42,0,0,0,12,8,120.9,120.9,0,0,0,18,5q129,1.5,258,0c5,0,11-3,15.92-4.16"
+        fill="none"
+        stroke="#02005c"
+        stroke-linecap="round"
+        stroke-miterlimit="10"
+        stroke-width="20"
+      />
+      <path
+        d="M230.31,256,211.85,374.4h44.41L230.31,469l81.57-127.8H270.76L311.88,256Z"
+        fill="#fff"
+      />
+      <polygon
+        fill="#fc0"
+        points="270.76 341.2 302.22 276 250.32 276 234.97 374.4 256.25 374.4 250.77 394.4 276.26 394.4 275 398.98 299.11 361.2 290.77 361.2 300.42 341.2 270.76 341.2"
+      />
+      <line
+        fill="none"
+        stroke="#02005c"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="20"
+        x1="218.01"
+        x2="217.92"
+        y1="334.86"
+        y2="335.44"
+      />
+      <polyline
+        fill="none"
+        points="214.13 359.76 211.84 374.4 256.25 374.4 230.31 469.01 311.88 341.2 270.76 341.2 311.88 256 230.31 256 221.98 309.42"
+        stroke="#02005c"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="20"
+      />
+    </svg>
+  ),
+});
+
+const snow = createIcon({
+  displayName: "Notification",
+  viewBox: "0 0 512 512",
+  path: (
+    <svg xmlns="http://www.w3.org/2000/svg" id="icone" viewBox="0 0 512 512">
+      <title />
+      <line
+        fill="none"
+        stroke="#02005c"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="20"
+        x1="216.41"
+        x2="280.41"
+        y1="324"
+        y2="324"
+      />
+      <line
+        fill="none"
+        stroke="#02005c"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="20"
+        x1="232.41"
+        x2="264.41"
+        y1="351.71"
+        y2="296.28"
+      />
+      <line
+        fill="none"
+        stroke="#02005c"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="20"
+        x1="264.41"
+        x2="232.41"
+        y1="351.71"
+        y2="296.28"
+      />
+      <line
+        fill="none"
+        stroke="#02005c"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="20"
+        x1="303.31"
+        x2="375.31"
+        y1="385.07"
+        y2="385.07"
+      />
+      <line
+        fill="none"
+        stroke="#02005c"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="20"
+        x1="321.31"
+        x2="357.31"
+        y1="416.25"
+        y2="353.89"
+      />
+      <line
+        fill="none"
+        stroke="#02005c"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="20"
+        x1="357.31"
+        x2="321.31"
+        y1="416.25"
+        y2="353.89"
+      />
+      <line
+        fill="none"
+        stroke="#02005c"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="20"
+        x1="156.3"
+        x2="256.3"
+        y1="425.96"
+        y2="425.96"
+      />
+      <line
+        fill="none"
+        stroke="#02005c"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="20"
+        x1="181.3"
+        x2="231.3"
+        y1="469.26"
+        y2="382.66"
+      />
+      <line
+        fill="none"
+        stroke="#02005c"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="20"
+        x1="231.3"
+        x2="181.3"
+        y1="469.26"
+        y2="382.66"
+      />
+      <path
+        d="M380.14,190.14a105.1,105.1,0,0,0-7.34-23.33,64.4,64.4,0,0,0-12.66,3.33,105.64,105.64,0,0,0-19.9-44.46A106,106,0,0,0,170,210c0,2.72.11,5.41.31,8.08a50,50,0,0,0-58.23,71.83A49.78,49.78,0,0,0,136,296H383a65,65,0,0,0,54.85-99.85,65,65,0,0,0-57.71-6Z"
+        fill="#b6c4cf"
+      />
+      <path
+        d="M157.5,150.81c-.07.19-.15.37-.22.56s-.15.36-.22.55"
+        fill="none"
+        stroke="#02005c"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="20"
+      />
+      <path
+        d="M447.87,234.41c1.86-33.07-22.91-63.16-55.72-67.76a65.39,65.39,0,0,0-32,3.5c-6.45-34.08-30-62.91-61.32-77.47C255,71,198,88,169.85,128.24"
+        fill="none"
+        stroke="#02005c"
+        stroke-linecap="round"
+        stroke-miterlimit="10"
+        stroke-width="20"
+      />
+      <path
+        d="M427.65,278.24a64.67,64.67,0,0,0,13.64-18.62"
+        fill="none"
+        stroke="#02005c"
+        stroke-linecap="round"
+        stroke-miterlimit="10"
+        stroke-width="20"
+      />
+      <path
+        d="M150.83,176.7a107.71,107.71,0,0,0-.53,21.39A50.48,50.48,0,0,0,91,224.22,48.32,48.32,0,0,0,91,268c3,5,6,11,11,15a83.42,83.42,0,0,0,12,8,120.9,120.9,0,0,0,18,5q129,1.5,258,0c5,0,11-3,15.92-4.16"
+        fill="none"
+        stroke="#02005c"
+        stroke-linecap="round"
+        stroke-miterlimit="10"
+        stroke-width="20"
+      />
+    </svg>
+  ),
+});
+
+export default { partlycloudy, sunny, rain, cloudy, storm, snow };

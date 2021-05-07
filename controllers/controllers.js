@@ -29,7 +29,6 @@ const generateWeatherData = (req, res) => {
         .then((re) => re.json())
         .then((dat) => {
           res.send({ body: dat });
-          console.log(dat);
         });
     });
 };
