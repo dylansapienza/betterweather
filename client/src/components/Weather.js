@@ -15,7 +15,7 @@ import {
 import EnterZipcode from "./EnterZipcode";
 
 function Weather() {
-  const { isOpen, onToggle } = useDisclosure({ defaultIsOpen: true });
+  const [isOpen, onToggle] = useState(true);
   return (
     <>
       <ScaleFade initialScale={0.9} in={isOpen}>

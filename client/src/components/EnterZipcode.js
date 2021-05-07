@@ -9,22 +9,36 @@ import {
   Icon,
   useColorModeValue,
   createIcon,
+  propNames,
 } from "@chakra-ui/react";
 import axios from "axios";
 
 function EnterZipcode(props) {
+  const [weatherResponse, setWeatherResponse] = useState("");
+  const [weatherData, setWeatherData] = useState();
   function submitZipcode(zipcode) {
     console.log(zipcode);
-    axios.post(
-      "/api/v1/generateWeatherData",
-      { zipcode: zipcode },
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    props.submit();
+    axios
+      .post(
+        "/api/v1/generateWeatherData",
+        { zipcode: zipcode },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((response) => {
+        if (response.data.body.cod === "400") {
+          setWeatherResponse("Zipcode not Recognized. 5 digits only");
+          props.submit(true);
+        } else {
+          setWeatherResponse("OK");
+          console.log(response.data.body);
+          setWeatherData(response.data.body);
+        }
+      });
+    props.submit(false);
   }
 
   const WeatherIcon = createIcon({
@@ -158,7 +172,7 @@ function EnterZipcode(props) {
     ),
   });
 
-  return (
+  var weatherZipPrompt = (
     <Flex
       minH={"100vh"}
       align={"center"}
@@ -181,6 +195,12 @@ function EnterZipcode(props) {
             color={useColorModeValue("gray.800", "gray.200")}
           >
             Better Weather Report
+          </Heading>
+          <Heading
+            fontSize={"x1"}
+            color={useColorModeValue("red.700", "red.200")}
+          >
+            {weatherResponse}
           </Heading>
           <Text fontSize={"lg"} color={"gray.500"}>
             Enter your Zipcode
@@ -217,6 +237,8 @@ function EnterZipcode(props) {
       </Stack>
     </Flex>
   );
+
+  return <>{weatherResponse === "OK" ? <h1>Hi</h1> : weatherZipPrompt}</>;
 }
 
 export default EnterZipcode;

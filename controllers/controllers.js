@@ -27,8 +27,8 @@ const generateWeatherData = (req, res) => {
         `https://api.openweathermap.org/data/2.5/onecall?lat=${data.lat}&lon=${data.lon}&exclude={part}&appid=${ZIPCODEKEY}`
       )
         .then((re) => re.json())
-        .then(async (dat) => {
-          res.send({ body: await dat });
+        .then((dat) => {
+          res.send({ body: dat });
           console.log(dat);
         });
     });
