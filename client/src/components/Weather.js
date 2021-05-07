@@ -13,14 +13,25 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import EnterZipcode from "./EnterZipcode";
+import WeatherReport from "./WeatherReport";
 
 function Weather() {
   const [isOpen, onToggle] = useState(true);
+  const [weatherData, setWeatherData] = useState();
+  const [zipcode, setZipcode] = useState();
   return (
     <>
-      <ScaleFade initialScale={0.9} in={isOpen}>
-        <EnterZipcode submit={onToggle} />
-      </ScaleFade>
+      {weatherData ? (
+        <WeatherReport weatherData={weatherData} zipcode={zipcode} />
+      ) : (
+        <ScaleFade initialScale={0.9} in={isOpen}>
+          <EnterZipcode
+            submit={onToggle}
+            setWeatherData={setWeatherData}
+            setZipcode={setZipcode}
+          />
+        </ScaleFade>
+      )}
     </>
   );
 }

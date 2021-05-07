@@ -35,7 +35,8 @@ function EnterZipcode(props) {
         } else {
           setWeatherResponse("OK");
           console.log(response.data.body);
-          setWeatherData(response.data.body);
+          props.setZipcode(zipcode);
+          props.setWeatherData(response.data.body);
         }
       });
     props.submit(false);
@@ -238,7 +239,7 @@ function EnterZipcode(props) {
     </Flex>
   );
 
-  return <>{weatherResponse === "OK" ? <h1>Hi</h1> : weatherZipPrompt}</>;
+  return <>{weatherZipPrompt}</>;
 }
 
 export default EnterZipcode;
