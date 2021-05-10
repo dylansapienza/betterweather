@@ -41,8 +41,6 @@ function weathertoIcon(weather) {
   if (weather.main === "Clouds" && (weather.id === 801 || weather.id === 802))
     return WeatherIcons.partlycloudy;
   else return WeatherIcons.cloudy;
-
-  return WeatherIcons.notFound;
 }
 
 function WeatherWrapper({ children }) {
@@ -61,32 +59,56 @@ function WeatherWrapper({ children }) {
 }
 
 function HourlyTray(props) {
+  const [hour, setHour] = useState(0);
+  const [day, setDay] = useState("");
+
+  function changeHours(direction) {
+    if (direction === "right") {
+      if (hour + 6 > 47) {
+        return;
+      } else {
+        setHour(hour + 6);
+      }
+    }
+    if (direction === "left") {
+      if (hour - 6 < 0) {
+        return;
+      }
+      setHour(hour - 6);
+    }
+  }
+
+  function setTime(utc) {
+    return new Date(utc * 1000).toLocaleTimeString("en-US", {
+      hour: "numeric",
+    });
+  }
+
   return (
     <Box>
       <HStack justify="center">
         <WeatherWrapper>
           <Box py={4} px={3}>
+            <Text>{day}</Text>
             <HStack spacing={6} textAlign="center">
-              <Button rightIcon={<FaArrowCircleLeft />}></Button>
-              {props.hourlyData.slice(0, 6).map((hour) => (
+              <Button
+                onClick={() => {
+                  changeHours("left");
+                }}
+                rightIcon={<FaArrowCircleLeft />}
+              ></Button>
+              {props.hourlyData.slice(hour, hour + 6).map((hour) => (
                 <WeatherWrapper>
                   <Box px={8}>
                     <List spacing={3}>
                       <ListItem>
                         <Text fontSize="lg" fontWeight="500">
-                          {new Date(hour.dt * 1000).toLocaleTimeString(
-                            "en-US",
-                            {
-                              hour: "numeric",
-                            }
-                          )}
+                          {setTime(hour.dt)}
                         </Text>
                       </ListItem>
                       <ListItem>
                         <Icon
-                          as={weathertoIcon(
-                            props.hourlyData[0].weather[0].main
-                          )}
+                          as={weathertoIcon(hour.weather[0])}
                           w={10}
                           h={10}
                         />
@@ -105,7 +127,12 @@ function HourlyTray(props) {
                   </Box>
                 </WeatherWrapper>
               ))}
-              <Button rightIcon={<FaArrowCircleRight />}></Button>
+              <Button
+                onClick={() => {
+                  changeHours("right");
+                }}
+                rightIcon={<FaArrowCircleRight />}
+              ></Button>
             </HStack>
           </Box>
         </WeatherWrapper>
