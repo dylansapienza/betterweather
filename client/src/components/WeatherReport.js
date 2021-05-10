@@ -16,11 +16,13 @@ import {
   Collapse,
   Lorem,
   Button,
+  Divider,
   SlideFade,
 } from "@chakra-ui/react";
 import { FaCheckCircle } from "react-icons/fa";
 import WeatherIcons from "./WeatherIcons";
 import Weather from "./Weather";
+import HourlyData from "./HourlyData";
 
 var d = new Date();
 
@@ -145,6 +147,7 @@ function WeatherReport(props) {
                   </ListItem>
                 </List>
               </VStack>
+              <Divider colorScheme="blackAlpha" />
               <Box py={4} px={4} bg={useColorModeValue("gray.50", "gray.700")}>
                 <HStack justifyContent="left">
                   <Text fontSize="xl" fontWeight="500">
@@ -152,28 +155,24 @@ function WeatherReport(props) {
                   </Text>
                 </HStack>
                 <HStack justifyContent="left">
-                  <List spacing={5} textAlign="start" px={1}>
+                  <HourlyData />
+                  {/* <List spacing={5} textAlign="start" px={1}>
                     <ListItem>
                       <Box
                         py={4}
-                        px={0}
+                        px={1}
                         bg={useColorModeValue("white", "white")}
                       >
-                        {new Date(props.weatherData.hourly[0].dt)
-                          .toLocaleTimeString("en-US")
-                          .substring(
-                            0,
-                            new Date(props.weatherData.hourly[0].dt)
-                              .toLocaleTimeString("en-US")
-                              .indexOf(":")
-                          )}
-                        {" PM:  "}
-                        {props.weatherData.hourly[0].temp}
+                        {new Date(
+                          props.weatherData.hourly[0].dt * 1000
+                        ).toLocaleTimeString("en-US", { hour: "numeric" })}
+                        {":  "}
+                        {k_to_f(props.weatherData.hourly[0].temp)}
                       </Box>
                     </ListItem>
                     <ListItem>2pm</ListItem>
                     <ListItem>3pm</ListItem>
-                  </List>
+                  </List> */}
                 </HStack>
               </Box>
             </Collapse>
