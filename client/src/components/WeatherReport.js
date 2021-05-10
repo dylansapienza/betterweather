@@ -142,8 +142,8 @@ function WeatherReport(props) {
                     {props.weatherData.daily[0].humidity}% Humidity
                   </ListItem>
                   <ListItem>
-                    {props.weatherData.daily[0].pop * 100}% Chance of
-                    Precipitation
+                    {Math.round(props.weatherData.daily[0].pop * 100)}% Chance
+                    of Precipitation
                   </ListItem>
                 </List>
               </VStack>
@@ -155,7 +155,7 @@ function WeatherReport(props) {
                   </Text>
                 </HStack>
                 <HStack justifyContent="left">
-                  <HourlyData />
+                  <HourlyData hourlyData={props.weatherData.hourly} />
                   {/* <List spacing={5} textAlign="start" px={1}>
                     <ListItem>
                       <Box

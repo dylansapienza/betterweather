@@ -10,6 +10,10 @@ import {
   TableCaption,
 } from "@chakra-ui/react";
 
+function k_to_f(kelvin) {
+  return parseInt((kelvin - 273.15) * 1.8 + 32);
+}
+
 function HourlyData(props) {
   return (
     <Table variant="striped" size="sm">
@@ -22,21 +26,17 @@ function HourlyData(props) {
         </Tr>
       </Thead>
       <Tbody>
-        <Tr>
-          <Td>1 PM</Td>
-          <Td>62℉</Td>
-          <Td>12%</Td>
-        </Tr>
-        <Tr>
-          <Td>2 PM</Td>
-          <Td>65℉</Td>
-          <Td>10%</Td>
-        </Tr>
-        <Tr>
-          <Td>3 PM</Td>
-          <Td>67℉</Td>
-          <Td>8%</Td>
-        </Tr>
+        {props.hourlyData.slice(0, 13).map((hour) => (
+          <Tr>
+            <Td>
+              {new Date(hour.dt * 1000).toLocaleTimeString("en-US", {
+                hour: "numeric",
+              })}
+            </Td>
+            <Td>{k_to_f(hour.temp)}℉</Td>
+            <Td>{Math.round(hour.pop * 100)}%</Td>
+          </Tr>
+        ))}
       </Tbody>
     </Table>
   );
