@@ -19,7 +19,11 @@ import {
   Divider,
   SlideFade,
 } from "@chakra-ui/react";
-import { FaCheckCircle } from "react-icons/fa";
+import {
+  FaArrowCircleLeft,
+  FaArrowCircleRight,
+  FaCheckCircle,
+} from "react-icons/fa";
 import WeatherIcons from "./WeatherIcons";
 import Weather from "./Weather";
 import HourlyData from "./HourlyData";
@@ -303,6 +307,198 @@ function WeatherReport(props) {
             </VStack>
           </WeatherWrapper>
         </Stack>
+      </Box>
+      <Box>
+        <HStack justify="center">
+          <WeatherWrapper>
+            <Box py={4} px={3}>
+              <HStack spacing={6} textAlign="center">
+                <Button rightIcon={<FaArrowCircleLeft />}></Button>
+                <WeatherWrapper>
+                  <Box px={8}>
+                    <List spacing={3}>
+                      <ListItem>
+                        <Text fontSize="lg" fontWeight="500">
+                          1 PM
+                        </Text>
+                      </ListItem>
+                      <ListItem>
+                        <Icon
+                          as={weathertoIcon(
+                            props.weatherData.daily[0].weather[0]
+                          )}
+                          w={10}
+                          h={10}
+                        />
+                      </ListItem>
+                      <ListItem>
+                        <Text fontSize="md" fontWeight="500">
+                          {k_to_f(props.weatherData.daily[1].temp.day)}
+                        </Text>
+                      </ListItem>
+                      <ListItem>
+                        <Text fontSize="md" fontWeight="500">
+                          22%
+                        </Text>
+                      </ListItem>
+                    </List>
+                  </Box>
+                </WeatherWrapper>
+                <WeatherWrapper>
+                  <Box px={8}>
+                    <List spacing={3}>
+                      <ListItem>
+                        <Text fontSize="lg" fontWeight="500">
+                          1 PM
+                        </Text>
+                      </ListItem>
+                      <ListItem>
+                        <Icon
+                          as={weathertoIcon(
+                            props.weatherData.daily[0].weather[0]
+                          )}
+                          w={10}
+                          h={10}
+                        />
+                      </ListItem>
+                      <ListItem>
+                        <Text fontSize="md" fontWeight="500">
+                          {k_to_f(props.weatherData.daily[1].temp.day)}
+                        </Text>
+                      </ListItem>
+                      <ListItem>
+                        <Text fontSize="md" fontWeight="500">
+                          22%
+                        </Text>
+                      </ListItem>
+                    </List>
+                  </Box>
+                </WeatherWrapper>
+                <WeatherWrapper>
+                  <Box px={8}>
+                    <List spacing={3}>
+                      <ListItem>
+                        <Text fontSize="lg" fontWeight="500">
+                          1 PM
+                        </Text>
+                      </ListItem>
+                      <ListItem>
+                        <Icon
+                          as={weathertoIcon(
+                            props.weatherData.daily[0].weather[0]
+                          )}
+                          w={10}
+                          h={10}
+                        />
+                      </ListItem>
+                      <ListItem>
+                        <Text fontSize="md" fontWeight="500">
+                          {k_to_f(props.weatherData.daily[1].temp.day)}
+                        </Text>
+                      </ListItem>
+                      <ListItem>
+                        <Text fontSize="md" fontWeight="500">
+                          22%
+                        </Text>
+                      </ListItem>
+                    </List>
+                  </Box>
+                </WeatherWrapper>
+                <WeatherWrapper>
+                  <Box px={8}>
+                    <List spacing={3}>
+                      <ListItem>
+                        <Text fontSize="lg" fontWeight="500">
+                          1 PM
+                        </Text>
+                      </ListItem>
+                      <ListItem>
+                        <Icon
+                          as={weathertoIcon(
+                            props.weatherData.daily[0].weather[0]
+                          )}
+                          w={10}
+                          h={10}
+                        />
+                      </ListItem>
+                      <ListItem>
+                        <Text fontSize="md" fontWeight="500">
+                          {k_to_f(props.weatherData.daily[1].temp.day)}
+                        </Text>
+                      </ListItem>
+                      <ListItem>
+                        <Text fontSize="md" fontWeight="500">
+                          22%
+                        </Text>
+                      </ListItem>
+                    </List>
+                  </Box>
+                </WeatherWrapper>
+                <WeatherWrapper>
+                  <Box px={8}>
+                    <List spacing={3}>
+                      <ListItem>
+                        <Text fontSize="lg" fontWeight="500">
+                          1 PM
+                        </Text>
+                      </ListItem>
+                      <ListItem>
+                        <Icon
+                          as={weathertoIcon(
+                            props.weatherData.daily[0].weather[0]
+                          )}
+                          w={10}
+                          h={10}
+                        />
+                      </ListItem>
+                      <ListItem>
+                        <Text fontSize="md" fontWeight="500">
+                          {k_to_f(props.weatherData.daily[1].temp.day)}
+                        </Text>
+                      </ListItem>
+                      <ListItem>
+                        <Text fontSize="md" fontWeight="500">
+                          22%
+                        </Text>
+                      </ListItem>
+                    </List>
+                  </Box>
+                </WeatherWrapper>
+                <WeatherWrapper>
+                  <Box px={8}>
+                    <List spacing={3}>
+                      <ListItem>
+                        <Text fontSize="lg" fontWeight="500">
+                          1 PM
+                        </Text>
+                      </ListItem>
+                      <ListItem>
+                        <Icon
+                          as={weathertoIcon(
+                            props.weatherData.daily[0].weather[0]
+                          )}
+                          w={10}
+                          h={10}
+                        />
+                      </ListItem>
+                      <ListItem>
+                        <Text fontSize="md" fontWeight="500">
+                          {k_to_f(props.weatherData.daily[1].temp.day)}
+                        </Text>
+                      </ListItem>
+                      <ListItem>
+                        <Text fontSize="md" fontWeight="500">
+                          22%
+                        </Text>
+                      </ListItem>
+                    </List>
+                  </Box>
+                </WeatherWrapper>
+                <Button rightIcon={<FaArrowCircleRight />}></Button>
+              </HStack>
+            </Box>
+          </WeatherWrapper>
+        </HStack>
       </Box>
     </>
   );
