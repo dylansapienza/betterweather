@@ -123,6 +123,22 @@ function HourlyTray(props) {
                           {Math.round(hour.pop * 100)}%
                         </Text>
                       </ListItem>
+                      <ListItem>
+                        <Text color="grey" fontSize="md" fontWeight="400">
+                          {new Date(hour.dt * 1000)
+                            .toLocaleTimeString("en-US", {
+                              weekday: "long",
+                            })
+                            .substring(
+                              0,
+                              new Date(hour.dt * 1000)
+                                .toLocaleTimeString("en-US", {
+                                  weekday: "long",
+                                })
+                                .indexOf(" ")
+                            )}
+                        </Text>
+                      </ListItem>
                     </List>
                   </Box>
                 </WeatherWrapper>
