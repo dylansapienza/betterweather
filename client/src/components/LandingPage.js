@@ -61,7 +61,6 @@ function LandingPage() {
           <Flex w={"full"}></Flex>
         </Stack>
       </Container>
-      );
     </div>
   );
 }
