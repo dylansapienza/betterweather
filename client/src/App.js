@@ -16,18 +16,6 @@ import LandingPage from "./components/LandingPage";
 import Weather from "./components/Weather";
 
 function App() {
-  const [response, setResponse] = useState("");
-
-  function getResponse() {
-    axios.get("/api/v1/say-something").then((res) => {
-      setResponse(res.data);
-    });
-  }
-
-  useEffect(() => {
-    getResponse();
-  }, []);
-
   return (
     <BrowserRouter>
       <Route exact path="/" component={LandingPage} />
