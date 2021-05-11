@@ -23,6 +23,7 @@ import {
   FaArrowCircleLeft,
   FaArrowCircleRight,
   FaCheckCircle,
+  FaTint,
 } from "react-icons/fa";
 import WeatherIcons from "./WeatherIcons";
 
@@ -112,6 +113,9 @@ function HourlyTray(props) {
                           w={10}
                           h={10}
                         />
+                      </ListItem>
+                      <ListItem>
+                        <Text>{hour.weather[0].main}</Text>
                       </ListItem>
                       <ListItem>
                         <Text fontSize="md" fontWeight="500">
