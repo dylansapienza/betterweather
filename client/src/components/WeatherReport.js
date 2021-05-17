@@ -16,6 +16,13 @@ import {
   Collapse,
   Lorem,
   Button,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalFooter,
+  ModalBody,
   Divider,
   SlideFade,
 } from "@chakra-ui/react";
@@ -84,9 +91,25 @@ function WeatherWrapper({ children }) {
 }
 
 function WeatherReport(props) {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <>
       <Box py={12}>
+        <Modal onClose={onClose} isOpen={isOpen}>
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>Modal Title</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+              <Lorem count={2} />
+            </ModalBody>
+            <ModalFooter>
+              <Button onClick={onClose}>Close</Button>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
+        <Button onClick={() => onOpen()}>Open Modal</Button>
         <VStack spacing={2} textAlign="center">
           <Heading as="h1" fontSize="4xl">
             Weather in {props.zipcode}

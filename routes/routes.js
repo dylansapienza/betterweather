@@ -7,4 +7,6 @@ router.get("/say-something", controllers.saySomething);
 
 router.post("/generateWeatherData", controllers.generateWeatherData);
 
+router.get("/emailweather", controllers.emailWeather);
+
 module.exports = router;

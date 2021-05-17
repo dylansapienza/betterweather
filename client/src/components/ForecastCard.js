@@ -14,8 +14,15 @@ import {
   Image,
   useDisclosure,
   Collapse,
-  Lorem,
+  Modal,
   Button,
+  ModalBody,
+  ModalOverlay,
+  ModalCloseButton,
+  ModalContent,
+  ModalHeader,
+  Lorem,
+  ModalFooter,
   Divider,
   SlideFade,
 } from "@chakra-ui/react";
@@ -57,67 +64,93 @@ function WeatherWrapper({ children }) {
 }
 
 function ForecastCard(props) {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
-    <WeatherWrapper>
-      <Box py={4} px={12}>
-        <Text fontWeight="500" fontSize="2xl">
-          {new Date(props.dailydata.dt * 1000)
-            .toLocaleTimeString("en-US", {
-              weekday: "long",
-            })
-            .substring(
-              0,
-              new Date(props.dailydata.dt * 1000)
-                .toLocaleTimeString("en-US", {
-                  weekday: "long",
-                })
-                .indexOf(" ")
-            )}
-        </Text>
-        <HStack justifyContent="center">
-          <Icon as={weathertoIcon(props.dailydata.weather[0])} w={24} h={24} />
-        </HStack>
-        <HStack justifyContent="center">
-          <Text fontSize="2xl" fontWeight="600">
-            {props.dailydata.weather[0].main}
+    <>
+      <Modal onClose={onClose} size={"xl"} isOpen={isOpen}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Modal Title</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Lorem count={2} />
+          </ModalBody>
+          <ModalFooter>
+            <Button onClick={onClose}>Close</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+      <WeatherWrapper>
+        <Box py={4} px={12}>
+          <Text fontWeight="500" fontSize="2xl">
+            {new Date(props.dailydata.dt * 1000)
+              .toLocaleTimeString("en-US", {
+                weekday: "long",
+              })
+              .substring(
+                0,
+                new Date(props.dailydata.dt * 1000)
+                  .toLocaleTimeString("en-US", {
+                    weekday: "long",
+                  })
+                  .indexOf(" ")
+              )}
           </Text>
-        </HStack>
-        <HStack justifyContent="center">
-          <Text fontSize="5xl" fontWeight="900">
-            {k_to_f(props.dailydata.temp.day)}
-          </Text>
-          <Text fontSize="xl" fontWeight="900">
-            ℉
-          </Text>
-        </HStack>
-        <HStack justifyContent="center">
-          <Text fontSize="2xl" color="blue.500">
-            Lo: {k_to_f(props.dailydata.temp.min)}
-          </Text>
-          <Text fontSize="2xl" color="orange.500">
-            Hi: {k_to_f(props.dailydata.temp.max)}
-          </Text>
-        </HStack>
-      </Box>
-      <VStack
-        bg={useColorModeValue("gray.50", "gray.700")}
-        py={4}
-        borderBottomRadius={"xl"}
-      >
-        <List spacing={3} textAlign="start" px={12}>
-          <ListItem>{props.dailydata.uvi} UV Index</ListItem>
-          <ListItem>{props.dailydata.humidity}% Humidity</ListItem>
-          <ListItem>
-            {props.dailydata.pop * 100}% Chance of Precipitation
-          </ListItem>
-        </List>
-        <Box pt={7}>
-          <Button w="full" colorScheme="red" variant="outline">
-            More Data
-          </Button>
+          <HStack justifyContent="center">
+            <Icon
+              as={weathertoIcon(props.dailydata.weather[0])}
+              w={24}
+              h={24}
+            />
+          </HStack>
+          <HStack justifyContent="center">
+            <Text fontSize="2xl" fontWeight="600">
+              {props.dailydata.weather[0].main}
+            </Text>
+          </HStack>
+          <HStack justifyContent="center">
+            <Text fontSize="5xl" fontWeight="900">
+              {k_to_f(props.dailydata.temp.day)}
+            </Text>
+            <Text fontSize="xl" fontWeight="900">
+              ℉
+            </Text>
+          </HStack>
+          <HStack justifyContent="center">
+            <Text fontSize="2xl" color="blue.500">
+              Lo: {k_to_f(props.dailydata.temp.min)}
+            </Text>
+            <Text fontSize="2xl" color="orange.500">
+              Hi: {k_to_f(props.dailydata.temp.max)}
+            </Text>
+          </HStack>
         </Box>
-      </VStack>
-    </WeatherWrapper>
+        <VStack
+          bg={useColorModeValue("gray.50", "gray.700")}
+          py={4}
+          borderBottomRadius={"xl"}
+        >
+          <List spacing={3} textAlign="start" px={12}>
+            <ListItem>{props.dailydata.uvi} UV Index</ListItem>
+            <ListItem>{props.dailydata.humidity}% Humidity</ListItem>
+            <ListItem>
+              {Math.round(props.dailydata.pop * 100)}% Chance of Precipitation
+            </ListItem>
+          </List>
+          <Box pt={7}>
+            <Button
+              onClick={() => onOpen()}
+              w="full"
+              colorScheme="red"
+              variant="outline"
+            >
+              More Data
+            </Button>
+          </Box>
+        </VStack>
+      </WeatherWrapper>
+    </>
   );
 }
 
