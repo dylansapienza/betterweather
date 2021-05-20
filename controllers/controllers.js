@@ -47,7 +47,7 @@ const generateWeatherData = (req, res) => {
       )
         .then((re) => re.json())
         .then((dat) => {
-          res.send({ body: dat });
+          res.send({ body: dat, name: data.name });
         });
     });
 };
@@ -73,7 +73,7 @@ const emailWeather = (req, res) => {
           .then((dat) => {
             console.log(dat.daily[0].temp.day);
             var mailOptions = {
-              from: "betterweatherapp.com",
+              from: "betterweatherapp@gmail.com",
               to: recipient,
               subject: "Test Message",
               html:

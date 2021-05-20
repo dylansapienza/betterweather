@@ -16,6 +16,7 @@ import axios from "axios";
 function EnterZipcode(props) {
   const [weatherResponse, setWeatherResponse] = useState("");
   const [weatherData, setWeatherData] = useState();
+  const [name, setName] = useState("");
   function submitZipcode(zipcode) {
     console.log(zipcode);
     axios
@@ -36,6 +37,7 @@ function EnterZipcode(props) {
           setWeatherResponse("OK");
           console.log(response.data.body);
           props.setZipcode(zipcode);
+          props.setName(response.data.name);
           props.setWeatherData(response.data.body);
         }
       });

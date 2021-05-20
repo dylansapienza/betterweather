@@ -19,14 +19,20 @@ function Weather() {
   const [isOpen, onToggle] = useState(true);
   const [weatherData, setWeatherData] = useState();
   const [zipcode, setZipcode] = useState();
+  const [name, setName] = useState("");
   return (
     <>
       {weatherData ? (
-        <WeatherReport weatherData={weatherData} zipcode={zipcode} />
+        <WeatherReport
+          weatherData={weatherData}
+          zipcode={zipcode}
+          name={name}
+        />
       ) : (
         <ScaleFade initialScale={0.9} in={isOpen}>
           <EnterZipcode
             submit={onToggle}
+            setName={setName}
             setWeatherData={setWeatherData}
             setZipcode={setZipcode}
           />
